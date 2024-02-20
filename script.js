@@ -2,15 +2,18 @@
     let mouse = document.getElementById('mousecircle');
     (function mouseMove() {
         window.addEventListener('mousemove', (details) => {
-            mouse.style.transform = `translate(${details.clientX}px,${details.clientY}px)`
+            // mouse.style.left = details.x + "px"
+            mouse.style.left = details.pageX + "px"
+            // mouse.style.top = details.y + "px"
+            mouse.style.top = details.pageY + "px"
+            console.log(details.x, details.y)
         })
     })()
 
     let jee = document.querySelector('.bigmouse');
-    jee.addEventListener('mouseover', function () {
+    jee.addEventListener('mousemove', function () {
         mouse.style.width = '80px'
         mouse.style.height = '80px'
-        mouse.style.transform = translate("-50%","-50%")
 
     })
     jee.addEventListener('mouseout', function () {
@@ -18,11 +21,6 @@
         mouse.style.height = '15px'
     })
 })();
-
-const scroll = new LocomotiveScroll({
-    el: document.querySelector('#main'),
-    smooth: true
-});
 
 (function gsapAnimation() {
     let tl = gsap.timeline()
@@ -48,7 +46,7 @@ const scroll = new LocomotiveScroll({
 
 // skill box rounding toggle
 
-(function skillBox(){
+(function skillBox() {
     let toggle = document.querySelector('.toggle');
     let skill = document.querySelector('#skill');
     toggle.onmouseenter = function () {
@@ -56,6 +54,70 @@ const scroll = new LocomotiveScroll({
     }
 })();
 
+// lenis basic setup
 
 
 
+
+const lenis = new Lenis()
+
+
+lenis.on('scroll', (e) => {
+    console.log(e)
+})
+
+function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+console.log(lenis)
+
+
+gsap.to("#home #hleft", {
+    scale: 0,
+    opacity: 0,
+    x: 200,
+    scrollTrigger: {
+        trigger: "#home #hleft",
+        scroller: "body",
+        // markers: true,
+        start: "50% 50%",
+        end: "80% 40%",
+        scrub: 1,
+    }
+})
+gsap.to("#home #hright", {
+    x: -300,
+    scrollTrigger: {
+        trigger: "#home #hright",
+        scroller: "body",
+        // markers: true,
+        start: "50% 50%",
+        end: "80% 40%",
+        scrub: 1,
+    }
+})
+gsap.from("#page2 .toggle", {
+    rotate: 360, 
+    scrollTrigger: {
+        trigger: "#page2 .toggle",
+        scroller: "body",
+        markers: true,
+        start: "50% 75%",
+        end: "80% 50%",
+        scrub: 1,
+    }
+})
+gsap.from("#page3", {
+    rotate: 360, 
+    scrollTrigger: {
+        trigger: "#page3",
+        scroller: "body",
+        markers: true,
+        start: "50% 75%",
+        end: "80% 50%",
+        scrub: 1,
+    }
+})
