@@ -46,33 +46,47 @@
 
 // skill box rounding toggle
 
-(function skillBox() {
-    let toggle = document.querySelector('.toggle');
-    let skill = document.querySelector('#skill');
-    toggle.onmouseenter = function () {
-        skill.classList.toggle('active')
-    }
-})();
+// (function skillBox() {
+//     let toggle = document.querySelector('.toggle');
+//     let skill = document.querySelector('#skill');
+//     toggle.onmouseenter = function () {
+//         skill.classList.toggle('active')
+//     }
+// })();
 
 // lenis basic setup
 
 
 
 
+// const lenis = new Lenis()
+
+
+// lenis.on('scroll', (e) => {
+//     console.log(e)
+// })
+
+// function raf(time) {
+//     lenis.raf(time)
+//     requestAnimationFrame(raf)
+// }
+
+// requestAnimationFrame(raf)
+// console.log(lenis)
+
 const lenis = new Lenis()
 
-
 lenis.on('scroll', (e) => {
-    console.log(e)
+  console.log(e)
 })
 
-function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-}
+lenis.on('scroll', ScrollTrigger.update)
 
-requestAnimationFrame(raf)
-console.log(lenis)
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
+
+gsap.ticker.lagSmoothing(0)
 
 
 gsap.to("#home #hleft", {
@@ -82,10 +96,10 @@ gsap.to("#home #hleft", {
     scrollTrigger: {
         trigger: "#home #hleft",
         scroller: "body",
-        // markers: true,
+        markers: true,
         start: "50% 50%",
         end: "80% 40%",
-        scrub: 1,
+        scrub: true,
     }
 })
 gsap.to("#home #hright", {
@@ -93,31 +107,65 @@ gsap.to("#home #hright", {
     scrollTrigger: {
         trigger: "#home #hright",
         scroller: "body",
-        // markers: true,
+        markers: true,
         start: "50% 50%",
         end: "80% 40%",
         scrub: 1,
     }
 })
-gsap.from("#page2 .toggle", {
-    rotate: 360, 
-    scrollTrigger: {
-        trigger: "#page2 .toggle",
-        scroller: "body",
-        markers: true,
-        start: "50% 75%",
-        end: "80% 50%",
-        scrub: 1,
-    }
-})
-gsap.from("#page3", {
-    rotate: 360, 
-    scrollTrigger: {
-        trigger: "#page3",
-        scroller: "body",
-        markers: true,
-        start: "50% 75%",
-        end: "80% 50%",
-        scrub: 1,
-    }
-})
+// gsap.from("#page2 .toggle", {
+//     rotate: 360, 
+//     scrollTrigger: {
+//         trigger: "#page2 .toggle",
+//         scroller: "body",
+//         markers: true,
+//         start: "50% 75%",
+//         end: "80% 50%",
+//         scrub: 1,
+//     }
+// })
+
+// hgkf
+
+// Define some skills
+const skills = [
+    { name: 'HTML', level: 'Intermediate' },
+    { name: 'CSS', level: 'Intermediate' },
+    { name: 'JavaScript', level: 'Intermediate' },
+    { name: 'React', level: 'Intermediate' },
+    { name: 'Node.js', level: 'Intermediate' },
+    { name: 'Python', level: 'Intermediate' },
+    { name: 'SQL', level: 'Intermediate' }
+  ];
+  
+  // Function to display skills on the page with animation
+  function displaySkills() {
+    const skillsList = document.getElementById('skills-list');
+  
+    // Clear previous content
+    skillsList.innerHTML = '';
+  
+    // Loop through skills and create elements with animation
+    skills.forEach((skill, index) => {
+      setTimeout(() => {
+        const skillDiv = document.createElement('div');
+        skillDiv.classList.add('skill');
+  
+        const skillName = document.createElement('div');
+        skillName.classList.add('skill-name');
+        skillName.textContent = skill.name;
+  
+        const skillLevel = document.createElement('div');
+        skillLevel.classList.add('skill-level');
+        skillLevel.textContent = 'Level: ' + skill.level;
+  
+        skillDiv.appendChild(skillName);
+        skillDiv.appendChild(skillLevel);
+        skillsList.appendChild(skillDiv);
+      }, index * 150); // Delay each skill animation
+    });
+  }
+  
+  // Call the function to display skills with animation when the page loads
+  window.onload = displaySkills;
+  
