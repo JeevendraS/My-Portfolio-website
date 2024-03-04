@@ -1,6 +1,3 @@
-import locomotiveScroll from "locomotive-scroll";
-const scroll = new locomotiveScroll();
-
 (function mouse() {
     let mouse = document.getElementById('mousecircle');
     (function mouseMove() {
@@ -118,7 +115,7 @@ const scroll = new locomotiveScroll();
     },"skill")
     
     gsap.from(".skills-list a", {
-        fontSize:0,
+        // fontSize:0,
         stagger:0.2,
         scrollTrigger:{
             trigger: ".skills-container a",
@@ -130,17 +127,47 @@ const scroll = new locomotiveScroll();
     },"name")
     
     gsap.from('.skill',{
-        y:100,
+        // y:100,
+        scale:0.3,
+        stagger:0.8,
         opacity:0,
         scrollTrigger:{
             trigger:'.skill',
             scroller:"body",
+            start:'top 80%',
+            end:'top 60%',
+            markers:true,
+            scrub:true
+        }
+    } , "name")
+    gsap.from('#page2',{
+        borderRadius:'50%',
+        scrollTrigger:{
+            trigger:'#page2',
+            scroller:"body",
             start:'top 90%',
-            end:'top 70%',
+            end:'top 75%',
+            markers:true,
             scrub:true
         }
     } , "name")
     
     
 })();
+
+let tl = gsap.timeline({scrollTrigger:{
+    trigger:'#page3',
+    scroller:'body',
+    start: '50% 80%',
+    end: '80% 50%',
+    // markers:true,
+    // pin:true,
+    scrub:true
+}})
+
+tl.to('#overlay-content h1',{
+    width:'100%',
+    stagger:2
+    // backgroundColor:'red'
+},'a')
 
