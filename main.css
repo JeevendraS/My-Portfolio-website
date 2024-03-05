@@ -14,7 +14,7 @@
 :root {
     --primary-fonts: Verdana, Geneva, Tahoma, sans-serif;
     --second-fonts: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    --p-color: brown;
+    --p-color: cyan;
     --font-color: aliceblue;
 }
 
@@ -348,6 +348,9 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    border-radius: 5%;
+    border-top: 1px solid cyan;
+    border-bottom: 1px solid cyan;
 }
 
 #page3left {
@@ -363,11 +366,13 @@ body {
 #about {
     display: flex;
     align-items: center;
+    background-color: yello;
 }
 
 #about h1 {
     font-size: 5vw;
     font-family: var(--primary-fonts);
+    letter-spacing: -4px;
 }
 
 #page3right {
@@ -394,7 +399,8 @@ body {
 #overlay-content h1{
     width: 0%;
     font-family: var(--second-fonts);
-    color: #fff;
+    /* color: #fff; */
+    color: cyan;
     font-size: 6vh;
     text-wrap: nowrap;
     line-height: 4vw;
@@ -407,6 +413,88 @@ body {
 /* page 4 css */
 #page4 {
     width: 100%;
+    height: min-content;
+    /* background-color: #fff; */
+}
+#project-heading{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid cyan;
+    font-family: var(--primary-fonts);
+}
+#project-heading h1{
+    font-size: 2vw;
+    color: #03f8f8;
+    letter-spacing: -3px;
+    padding-left: 3vw;
+    margin-right: 1vw;
+}
+#project-heading i{
+    /* width: 4vw; */
+    padding-top: 1vh;
+    font-size: 1.5vw;
+    color: #03f8f8;
+}
+.projectBox{
+    height: 8vw;
+    border: 1px solid cyan;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.overlay-proj{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: cyan;
+    left: 0;
+    top: -100%;
+    transition: all ease 0.25s;
+    pointer-events: none;
+}
+.projectBox:hover .overlay-proj{
+    top: 0;
+    /* background-color: transparent; */
+}
+.projectBox:hover #project-View{
+    z-index: 9;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.projectBox h1{
+    color: cyan;
+    font-family: var(--primary-fonts);
+    font-size: 4vw;
+    text-justify: inter-ideograph;
+    padding-left: 3vw;
+    transition: all ease-in-out 0.4s;
+}
+.projectBox:hover h1{
+    z-index: 9;
+    color: #fff;
+}
+#project-View{
+    color: cyan;
+    margin-right: 5vw;
+    font-family: var(--second-fonts);
+    border: 1px solid cyan;
+    padding: 0.5vh 1vh;
+    border-radius: 15%;
+}
+
+
+
+
+
+
+
+#page5{
+    width: 100%;
     height: 100vh;
-    background-color: rgb(0, 255, 255);
+    background-color: blanchedalmond;
 }

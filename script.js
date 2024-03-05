@@ -136,7 +136,7 @@
             scroller:"body",
             start:'top 80%',
             end:'top 60%',
-            markers:true,
+            // markers:true,
             scrub:true
         }
     } , "name")
@@ -147,7 +147,7 @@
             scroller:"body",
             start:'top 90%',
             end:'top 75%',
-            markers:true,
+            // markers:true,
             scrub:true
         }
     } , "name")
@@ -158,10 +158,10 @@
 let tl = gsap.timeline({scrollTrigger:{
     trigger:'#page3',
     scroller:'body',
-    start: '50% 80%',
-    end: '80% 50%',
+    start: '50% 50%',
+    end: '80% 20%',
     // markers:true,
-    // pin:true,
+    pin:true,
     scrub:true
 }})
 
@@ -170,4 +170,6 @@ tl.to('#overlay-content h1',{
     stagger:2
     // backgroundColor:'red'
 },'a')
+
+
 
