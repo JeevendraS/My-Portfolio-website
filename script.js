@@ -6,7 +6,6 @@
             mouse.style.left = details.pageX + "px"
             // mouse.style.top = details.y + "px"
             mouse.style.top = details.pageY + "px"
-            console.log(details.x, details.y)
         })
     })()
 
@@ -47,9 +46,9 @@
 (function leniSetup(){
     const lenis = new Lenis()
 
-    lenis.on('scroll', (e) => {
-      console.log(e)
-    })
+    // lenis.on('scroll', (e) => {
+    //   console.log(e)
+    // })
     
     lenis.on('scroll', ScrollTrigger.update)
     
@@ -169,7 +168,23 @@ tl.to('#overlay-content h1',{
     width:'100%',
     stagger:2
     // backgroundColor:'red'
-},'a')
+},'a');
 
-
+(function (){
+    projects = document.querySelectorAll('.projectBox')
+    projectPreview = document.querySelector('.projectPreview');
+    projects.forEach(element => {
+        element.addEventListener('mouseenter',(e)=>{
+            console.log(e.target.attributes[2].textContent)
+            projectPreview.style.display = 'block'
+            image = e.target.attributes[2].textContent
+            projectPreview.style.backgroundImage = `url('${image}')`
+        })
+    });
+    projects.forEach(element => {
+        element.addEventListener('mouseout',()=>{
+            projectPreview.style.display = 'none'
+        })
+    });
+})();
 
