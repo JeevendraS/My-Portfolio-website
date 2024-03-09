@@ -175,7 +175,7 @@ tl.to('#overlay-content h1',{
     projectPreview = document.querySelector('.projectPreview');
     projects.forEach(element => {
         element.addEventListener('mouseenter',(e)=>{
-            console.log(e.target.attributes[2].textContent)
+            // console.log(e.target.attributes[2].textContent)
             projectPreview.style.display = 'block'
             image = e.target.attributes[2].textContent
             projectPreview.style.backgroundImage = `url('${image}')`
@@ -187,4 +187,11 @@ tl.to('#overlay-content h1',{
         })
     });
 })();
+
+let bt = document.querySelectorAll('#footer-bottom a')
+bt.forEach((e)=>{
+    e.addEventListener('click',()=>{
+        console.log('bt')
+    })
+})
 
