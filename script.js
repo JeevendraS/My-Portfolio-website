@@ -188,10 +188,5 @@ tl.to('#overlay-content h1',{
     });
 })();
 
-let bt = document.querySelectorAll('#footer-bottom a')
-bt.forEach((e)=>{
-    e.addEventListener('click',()=>{
-        console.log('bt')
-    })
-})
+
 
