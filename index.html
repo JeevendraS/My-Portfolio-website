@@ -168,10 +168,10 @@
                         <h3>Mobile: +91 9171822887</h3>
                     </div>
                     <div id="footer-top-left">
-                        <form method="post">
-                            <input type="text" placeholder="Name">
-                            <input type="email" placeholder="Email address">
-                            <button type="button">Submit</button>
+                        <form onsubmit="SendMail(); reset(); return false;">
+                            <input type="text" placeholder="Name" id="name">
+                            <input type="email" placeholder="Email address" id="email">
+                            <button type="submit">Submit</button>
                         </form>
                     </div>
                 </div>

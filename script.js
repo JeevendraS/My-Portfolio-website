@@ -188,5 +188,21 @@ tl.to('#overlay-content h1',{
     });
 })();
 
+function SendMail(){
+    const name = document.getElementById('name').value
+    const email = document.getElementById('email').value
+
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "jeevendrasingh1999@gmail.com",
+        Password : "11870C4925E79D7CD9CD4364557584BF17DF",
+        To : 'jeevendrasingh1999@gmail.com',
+        From : 'jeevendrasingh1999@gmail.com',
+        Subject : "Email from My Portfolio website contact",
+        Body : "Name: " + name  + "<br> User Email: " + email
+    }).then(
+      message => alert(message)
+    );
+}
 
 
