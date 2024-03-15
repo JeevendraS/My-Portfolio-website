@@ -161,14 +161,15 @@ body {
     line-height: 4rem;
 }
 
-#hleft button:hover {
+#hleft #button:hover {
     background-color: cyan;
     color: #000;
 }
 
-#hleft button {
+#hleft #button {
     transform-origin: center;
     transition: all ease-in 0.3s;
+    text-decoration: none;
     border: 2px solid #fff;
     background-color: transparent;
     margin: 3px;
@@ -389,7 +390,7 @@ body {
     font-family: var(--second-fonts);
     font-size: 6vh;
     line-height: 4vw;
-    color: #1a1919e1;
+    color: #535252e1;
 }
 
 #overlay-content{
