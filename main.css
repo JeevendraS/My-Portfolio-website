@@ -465,8 +465,10 @@ body {
 }
 .projectBox:hover #project-View{
     z-index: 9;
-    color: #fff;
     border: 1px solid #fff;
+}
+.projectBox:hover #project-View a{
+    color: #fff;
 }
 
 .projectBox h1{
@@ -483,12 +485,16 @@ body {
     pointer-events: none;
 }
 #project-View{
-    color: cyan;
     margin-right: 5vw;
     font-family: var(--second-fonts);
     border: 1px solid cyan;
-    padding: 0.5vh 1vh;
+    padding: 0.2vh 1vh;
     border-radius: 15%;
+}
+#project-View a{
+    text-decoration: none;
+    font-size: 1.3vw;
+    color: cyan;
 }
 .projectPreview{
     width: 50vw;
